@@ -83,6 +83,7 @@ class GpsResponse(object):
         self.climb = 0
         self.time = ''
         self.error = {}
+        self.hdop = 0.0
 
     @classmethod
     def from_json(cls, packet):
