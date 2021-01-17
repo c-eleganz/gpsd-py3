@@ -102,9 +102,11 @@ class GpsResponse(object):
             result.sats = len(last_sky['satellites'])
             result.sats_valid = len(
                 [sat for sat in last_sky['satellites'] if sat['used'] == True])
+            result.hdop = last_sky['hdop'] if 'hdop' in last_sky else 0.0
         else:
             result.sats = 0;
             result.sats_valid = 0;
+            result.hdop = 0.0;
 
         result.mode = last_tpv['mode']
 
@@ -130,6 +132,9 @@ class GpsResponse(object):
             result.error['v'] = last_tpv['epv'] if 'epv' in last_tpv else 0
 
         return result
+
+    def dop(self):
+        return self.hdop
 
     def position(self):
         """ Get the latitude and longtitude as tuple.
