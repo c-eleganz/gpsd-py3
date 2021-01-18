@@ -106,8 +106,6 @@ class GpsResponse(object):
             result.vdop = last_sky['vdop'] if 'vdop' in last_sky else 0.0
             result.pdop = last_sky['pdop'] if 'pdop' in last_sky else 0.0
             
-
-
         else:
             result.sats = 0
             result.sats_valid = 0
