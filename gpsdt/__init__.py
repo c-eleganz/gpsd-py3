@@ -138,9 +138,6 @@ class GpsResponse(object):
 
         return result
 
-    def dop(self):
-        return {"hdop": self.hdop, "vdop": self.vdop, "pdop": self.pdop}
-
     def position(self):
         """ Get the latitude and longtitude as tuple.
         Needs at least 2D fix.
